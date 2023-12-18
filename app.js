@@ -42,15 +42,16 @@ app.use((req, res, next) => {
     res.locals.error = req.flash('error');
     next();
 })
-app.use('/campgrounds', campgroundRoutes);
-app.use('/campgrounds/:id/reviews', reviewRoutes)
-app.use('/', userRoutes);
 app.use(passport.initialize());
 app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
+app.use('/campgrounds', campgroundRoutes);
+app.use('/campgrounds/:id/reviews', reviewRoutes)
+app.use('/', userRoutes);
 
 app.listen(3000, () => {
     console.log('Serving on port 3000');
