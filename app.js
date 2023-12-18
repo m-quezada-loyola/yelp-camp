@@ -37,11 +37,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(session(sessionConfig));
 app.use(flash());
-app.use((req, res, next) => {
-    res.locals.success = req.flash('success');
-    res.locals.error = req.flash('error');
-    next();
-})
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -49,9 +45,18 @@ passport.use(new LocalStrategy(User.authenticate()))
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+})
+
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.use('/', userRoutes);
+
+
 
 app.listen(3000, () => {
     console.log('Serving on port 3000');
