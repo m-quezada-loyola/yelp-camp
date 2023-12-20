@@ -4,7 +4,7 @@
 <div class="row">
     <h1 class="text-center">Edit Campground</h1>
     <div class="col-6 offset-3">
-        <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" class="validated-form" novalidate>
+        <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" class="validated-form" enctype="multipart/form-data" novalidate>
             <div class="mb-3">
                 <label class="form-label" for="title" >Title</label>
                 <input class="form-control" type="type" id="title" name="campground[title]" value="<%= campground.title %>" required>
@@ -16,11 +16,6 @@
                 <div class="valid-feedback">Looks good!</div>
             </div>
             <div class="mb-3">
-                <label for="image" class="form-label">Image URL</label>
-                <input type="text" class="form-control" id="image" name="campground[image]" value="<%= campground.image %>" required>
-                <div class="valid-feedback">Looks good!</div>
-            </div>
-            <div class="mb-3">
                 <label for="price" class="form-label">Campground Price</label>
                 <div class="input-group">
                     <span class="input-group-text" id="price-label">$</span>
@@ -28,11 +23,14 @@
                 </div>
                 <div class="valid-feedback">Looks good!</div>
             </div>
-
             <div class="mb-3">
                 <label for="image" class="form-label">Description</label>
                 <textarea type="text" class="form-control" id="description" name="campground[description]" required><%= campground.description %></textarea>
                 <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Add More Images</label>
+                <input class="form-control" type="file" id="image" name="image" multiple>
             </div>
             <button type="submit" class="btn btn-info">Update Campground</button>
         </form>
