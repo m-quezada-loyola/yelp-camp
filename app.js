@@ -12,6 +12,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const mongoSanitize = require('express-mongo-sanitize');
 const ExpressError = require('./utils/ExpressError');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
@@ -40,6 +41,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(mongoSanitize());
 
 app.use(passport.initialize());
 app.use(passport.session());
