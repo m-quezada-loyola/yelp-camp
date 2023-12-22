@@ -1,7 +1,9 @@
 
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
+// if (process.env.NODE_ENV !== 'production') {
+//     require('dotenv').config();
+// }
+
+require('dotenv').config();
 
 const express = require('express');
 const path = require('path');
@@ -23,6 +25,7 @@ mongoose.connect('mongodb://localhost:27017/yelp-camp');
 
 const app = express();
 const sessionConfig = {
+    name: 'session',
     secret: 'temporalsecret',
     resave: false,
     saveUninitialized: true,
