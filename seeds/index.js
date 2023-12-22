@@ -13,7 +13,6 @@ db.once('open', () => {
 })
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
-
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let index = 0; index < 50; index++) {
@@ -23,8 +22,11 @@ const seedDB = async () => {
             author: '657bd9a737397724ed0e742a',
             location: `${cities[randomNumber].city}, ${cities[randomNumber].state}`,
             geometry: {
-              type: "Point",
-              coordinates: [-113.1331, 47.0202]
+                type: "Point",
+                coordinates: [
+                    cities[randomNumber].longitude,
+                    cities[randomNumber].latitude
+                ]
             },
             title: `${sample(descriptors)} ${sample(places)}`,
             images: [
