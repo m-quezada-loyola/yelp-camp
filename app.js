@@ -1,9 +1,7 @@
 
-// if (process.env.NODE_ENV !== 'production') {
-//     require('dotenv').config();
-// }
-
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 
 const express = require('express');
 const path = require('path');
@@ -11,6 +9,7 @@ const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
@@ -21,11 +20,27 @@ const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/user');
 const User = require('./models/user');
+// const dbUrl =  process.env.DB_URL;
+const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp');
+mongoose.connect(dbUrl);
 
 const app = express();
+
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: 'thisshouldbeabettersecret!'
+    }
+});
+
+store.on('error', function (e) {
+    console.log('Session store error', e);
+})
+
 const sessionConfig = {
+    store,
     name: 'session',
     secret: 'temporalsecret',
     resave: false,
@@ -110,8 +125,6 @@ app.use((req, res, next) => {
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.use('/', userRoutes);
-
-
 
 app.listen(3000, () => {
     console.log('Serving on port 3000');
