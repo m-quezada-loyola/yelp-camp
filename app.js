@@ -70,6 +70,7 @@ const scriptSrcUrls = [
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
+    "https://kit.fontawesome.com/ec1dabc8bc.js"
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
@@ -85,8 +86,11 @@ const connectSrcUrls = [
     "https://a.tiles.mapbox.com/",
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
+    "https://ka-f.fontawesome.com/"
 ];
-const fontSrcUrls = [];
+const fontSrcUrls = [
+    "https://ka-f.fontawesome.com/"
+];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
