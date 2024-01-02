@@ -4,7 +4,7 @@
 <div class="row row-cols-1 row-cols-md-3 g-4 mb-3">
 <% for (let campground of campgrounds) { %>
     <div class="col">
-        <div class="card">
+        <div class="card h-100">
             <% if (campground.images.length) { %>
                 <img class="img-fluid" alt="" src="<%= campground.images[0].url %>">
             <% } else { %>
