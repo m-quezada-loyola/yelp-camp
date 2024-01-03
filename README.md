@@ -6,7 +6,7 @@
 
 ## 📖 Description
 
- Yelpcamp is a full-stack web application where register users can share, browse and review campgrounds. This project was developed in the [web development bootcamp](https://www.udemy.com/course/the-web-developer-bootcamp/) taught by [Colt Steele](https://github.com/Colt). The applicaction was deployed with [Render](https://render.com/) and can be visited with this [link][https://yelp-camp-8rpd.onrender.com/].
+ Yelpcamp is a full-stack web application where register users can share, browse and review campgrounds. This project was developed in the [web development bootcamp](https://www.udemy.com/course/the-web-developer-bootcamp/) taught by [Colt Steele](https://github.com/Colt). The applicaction was deployed with [Render](https://render.com/) and can be visited [here](https://yelp-camp-8rpd.onrender.com/).
 
 ## Screenshots 📷
 
