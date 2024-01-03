@@ -29,6 +29,3 @@ The main technologies (libraries, frameworks, APIs) used for the development and
 - [Cloudinary](https://cloudinary.com/).
 - [Awesome Font](https://fontawesome.com/).
 - [Render](https://render.com/).
-
-
-## :running_man: Run locally
