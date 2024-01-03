@@ -6,9 +6,9 @@
     <div class="col">
         <div class="card h-100">
             <% if (campground.images.length) { %>
-                <img class="img-fluid" alt="" src="<%= campground.images[0].url %>">
+                <img class="img-index" alt="" src="<%= campground.images[0].url %>">
             <% } else { %>
-                <img class="img-fluid" alt="" src="https://res.cloudinary.com/dpvtarguc/image/upload/v1703024889/YelpCamp/whflf0xz1rm2eiphayan.jpg">
+                <img class="img-index" alt="" src="https://res.cloudinary.com/dpvtarguc/image/upload/v1703024889/YelpCamp/whflf0xz1rm2eiphayan.jpg">
             <% } %>
             <div class="card-body">
                 <h5 class="card-title"><%= campground.title %></h5>
