@@ -10,10 +10,10 @@
 
 ## Screenshots 📷
 
-![Home Page](/screenshots/1.png)
-![Login view](/screenshots/2.png)
-![Camgground index](/screenshots/3.png)
-![Campground show page](/screenshots/4.png)
+![Home Page](/screenshots/3.png)
+![Login view](/screenshots/4.png)
+![Camgground index](/screenshots/2.png)
+![Campground show page](/screenshots/1.png)
 
 
 
